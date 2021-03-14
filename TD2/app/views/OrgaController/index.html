@@ -1,0 +1,24 @@
+
+{% extends "OrgaController/base.html" %}
+{% block header %}
+    Organisations
+{% endblock %}
+{% block body %}
+<ul>
+    {% for orga in all %}
+        <li>
+            <a href="{{ path('orga.getOne', [orga.id]) }}">{{ orga }}</a>
+            <form action="{{ path('orga.updateOrga', [orga.id]) }}" method="post"><button>Edit</button></form>
+            <form action="{{ path('orga.delete', [orga.id]) }}" method="post"><button>Supprimer</button></form>
+        </li>
+    {% endfor %}
+
+</ul>
+    <form method="post" action="{{ path('orga.addOrgaForm') }}">
+        <button>Ajouter Organisation</button>
+    </form>
+
+    <form method="post" action="{{ path('orga.addGroup') }}">
+        <button>Ajouter Groupe</button>
+    </form>
+{% endblock %}
