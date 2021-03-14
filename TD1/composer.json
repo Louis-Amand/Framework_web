@@ -1,0 +1,20 @@
+{
+    "require": {
+        "php": ">=7.4",
+        "twig\/twig": "^3.0",
+        "phpmv\/ubiquity": "^2.3",
+        "phpmv/php-mv-ui": ">2.2.17",
+        "phpmv/ubiquity-webtools": "^2.4"
+    },
+    "require-dev": {
+        "monolog\/monolog": "^2.2",
+        "phpmv\/ubiquity-dev": "^0.1",
+        "phpmv\/ubiquity-attributes": "dev-main",
+        "czproject/git-php": "3.13"
+    },
+    "autoload": {
+        "psr-4": {
+            "": "app\/"
+        }
+    }
+}
