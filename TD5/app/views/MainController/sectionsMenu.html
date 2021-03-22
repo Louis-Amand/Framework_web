@@ -1,0 +1,16 @@
+<div class="ui attached segment"><i class="cart plus icon"></i>
+    {{ section.name }}
+    <a class="ui teal button" href="{{ path('store') }}" >Retour au store</a>
+</div>
+<br>
+
+<div class="ui four column grid">
+    {% for p in section.products %}
+        <div class="column">
+            <div class="ui segment">
+                <a data-target="#section-details" href="{{ path("product",[section.id], p.id) }}" class="item">{{ p.name }}</a><br>
+                <a class="ui tag label">Prix : {{ p.price }}</a>
+            </div>
+        </div>
+    {% endfor %}
+</div>

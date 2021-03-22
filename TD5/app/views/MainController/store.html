@@ -1,0 +1,52 @@
+<div class="ui grid">
+    <div class="four wide column">
+        <a class="ui teal button" href="{{ path('home') }}" >Tableau de bord</a>
+        <div class="ui vertical fluid inverted menu">
+            {% for section in sections %}
+                <a data-target="#section-details" href="{{ path("section",[section.id]) }}" class="item">
+                    {{ section.name }} <span class="ui circular label">{{ section.products|length }}</span>
+                </a>
+            {% endfor %}
+        </div>
+    </div>
+
+    <!--Tester si c'est de l'ajax, si oui on charge la page section/id dans la div principale, sinon les promos et articles récents-->
+    {% if content %}
+        <div class="twelve wide stretched column" id="section-details">{{ content|raw }}</div>
+    {% else %}
+        <div class="twelve wide stretched column">
+            <div class="ui segment" id="section-details">
+                <div  class="ui one column grid">
+                    <div class="column">
+                        <div class="ui attached segment"><i class="tags icon"></i> Promotions en cours</div>
+                        <div class="ui attached blue segment">
+                            <div class="ui divided list">
+                                <div class="item">
+
+                                </div>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+
+                <div  class="ui one column grid">
+                    <div class="column">
+                        <div class="ui attached segment"><i class="bookmark icon"></i> Consultés récemment</div>
+                        <div class="ui attached blue segment">
+                            <div class="ui divided list">
+                                <div class="item">
+
+                                </div>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </div>
+    {% endif %}
+
+
+</div>
+
+
+{{ script_foot|raw }}
