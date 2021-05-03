@@ -1,5 +1,5 @@
 <?php
-namespace controllers;
+ namespace controllers;
  use models\Groupe;
  use models\Organization;
  use Ubiquity\attributes\items\router\Get;
@@ -81,7 +81,7 @@ class OrgaController extends ControllerBase{
         $this->loadView("OrgaController/confirmation.html",['title'=> 'Supprimer', 'idOrga'=>$idOrga]);
     }
 
-    #[Path(path : 'orga/delete', name : "orga.deletePost")]
+    #[Route(path : 'orga/delete', name : "orga.deletePost")]
     public function deletePost(){
         if(DAO::delete(Organization::class,URequest::post('id'))){
             UResponse::header('location','/'.Router::path('orga.menu'));
